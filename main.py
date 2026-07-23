@@ -1,6 +1,8 @@
 expenses = []
 
 
+
+
 def add_expense():
     print("\n----- Add Expense -----")
 
@@ -8,15 +10,15 @@ def add_expense():
     amount = float(input("Enter Amount: "))
     note = input("Enter Note: ")
 
-    expense = {
-        "category": category,
-        "amount": amount,
-        "note": note
-    }
+    expense = {}
+
+    expense["category"] = category
+    expense["amount"] = amount
+    expense["note"] = note
 
     expenses.append(expense)
 
-    print("\n✅ Expense Added Successfully!")
+    print("Expense Added Successfully!")
 
 
 def menu():
