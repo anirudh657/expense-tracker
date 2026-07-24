@@ -1,8 +1,6 @@
 expenses = []
 
 
-
-
 def add_expense():
     print("\n----- Add Expense -----")
 
@@ -21,15 +19,6 @@ def add_expense():
     expenses.append(expense)
 
     print("\nExpense Added Successfully!")
-
-  
-
-
-
-   
-
-    
-
 
 
 def delete_expense():
@@ -53,17 +42,14 @@ def delete_expense():
 
         number = number + 1
 
-    
+    choice = int(input("Enter Expense Number to Delete: "))
 
-    
+    if 1 <= choice <= len(expenses):
+        expenses.pop(choice - 1)
+        print("Expense Deleted Successfully!")
+    else:
+        print("Invalid Expense Number!")
 
-choice = int(input("Enter Expense Number to Delete: "))
-
-if 1 <= choice <= len(expenses):
-    expenses.pop(choice - 1)
-    print("Expense Deleted Successfully!")
-else:
-    print("Invalid Expense Number!")
 
 def menu():
     print("=" * 40)
@@ -105,4 +91,3 @@ while True:
 
     else:
         print("Invalid Choice")
-
