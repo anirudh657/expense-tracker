@@ -51,6 +51,46 @@ def delete_expense():
         print("Invalid Expense Number!")
 
 
+def view_expenses():
+    print("\n----- View Expenses -----")
+
+    if len(expenses) == 0:
+        print("No Expenses Found.")
+        return
+
+    number = 1
+
+    for expense in expenses:
+        print("-----------------------")
+        print("Expense Number :", number)
+        print("Date :", expense["date"])
+        print("Category :", expense["category"])
+        print("Amount :", expense["amount"])
+        print("Note :", expense["note"])
+
+        number = number + 1
+
+
+def category_expense():
+    print("\n----- Category Expenses -----")
+
+    category = input("Enter Category: ")
+
+    found = False
+
+    for expense in expenses:
+        if expense["category"].lower() == category.lower():
+            print("-----------------------")
+            print("Date :", expense["date"])
+            print("Category :", expense["category"])
+            print("Amount :", expense["amount"])
+            print("Note :", expense["note"])
+            found = True
+
+    if found == False:
+        print("No Expense Found.")
+
+
 def menu():
     print("=" * 40)
     print("      EXPENSE TRACKER")
@@ -73,10 +113,11 @@ while True:
         add_expense()
 
     elif choice == "2":
-        print("View Expense Selected")
+        print("DEBUG: Inside option 2")
+        view_expenses()
 
     elif choice == "3":
-        print("Search Expense Selected")
+        category_expense()
 
     elif choice == "4":
         print("DEBUG: Inside option 4")
