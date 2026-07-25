@@ -6,7 +6,13 @@ def add_expense():
 
     date = input("Enter Date (DD-MM-YYYY): ")
     category = input("Enter Category: ")
-    amount = float(input("Enter Amount: "))
+
+    try:
+        amount = float(input("Enter Amount: "))
+    except ValueError:
+        print("Invalid Amount! Expense Not Added.")
+        return
+
     note = input("Enter Note: ")
 
     expense = {
@@ -90,6 +96,20 @@ def category_expense():
     if found == False:
         print("No Expense Found.")
 
+def total_expense():
+    print("\n----- Total Expense -----")
+
+    if len(expenses) == 0:
+        print("No Expenses Found.")
+        return
+
+    total = 0
+
+    for expense in expenses:
+        total = total + expense["amount"]
+
+    print("Total Expense =", total)        
+
 
 def menu():
     print("=" * 40)
@@ -124,7 +144,7 @@ while True:
         delete_expense()
 
     elif choice == "5":
-        print("Total Expense Selected")
+        total_expense()
 
     elif choice == "6":
         print("Thank You!")
