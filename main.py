@@ -108,8 +108,40 @@ def total_expense():
     for expense in expenses:
         total = total + expense["amount"]
 
-    print("Total Expense =", total)        
+    print("Total Expense =", total)       
 
+def fix_year(y):
+    if len(y) == 2:
+        y = "20" + y
+    return int(y)
+
+
+def monthly_report():
+    print("\n----- Monthly Report -----")
+
+    month = input("Enter Month and Year (MM-YYYY): ")
+    m, y = month.split("-")
+
+    total = 0
+    found = False
+
+    for expense in expenses:
+        day, mon, year = expense["date"].split("-")
+
+        if int(mon) == int(m) and fix_year(year) == fix_year(y):
+            print("-----------------------")
+            print("Date :", expense["date"])
+            print("Category :", expense["category"])
+            print("Amount :", expense["amount"])
+            print("Note :", expense["note"])
+            total = total + expense["amount"]
+            found = True
+
+    if found == False:
+        print("No Expenses Found.")
+    else:
+        print("-----------------------")
+        print("Total Expense =", total)
 
 def menu():
     print("=" * 40)
@@ -120,7 +152,8 @@ def menu():
     print("3. Search Expense")
     print("4. Delete Expense")
     print("5. Total Expense")
-    print("6. Exit")
+    print("6. Monthly Report")
+    print("7. Exit")
 
 
 while True:
@@ -133,20 +166,21 @@ while True:
         add_expense()
 
     elif choice == "2":
-        print("DEBUG: Inside option 2")
         view_expenses()
 
     elif choice == "3":
         category_expense()
 
     elif choice == "4":
-        print("DEBUG: Inside option 4")
         delete_expense()
 
     elif choice == "5":
         total_expense()
 
     elif choice == "6":
+        monthly_report()
+
+    elif choice == "7":
         print("Thank You!")
         break
 
