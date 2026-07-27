@@ -1,3 +1,6 @@
+import csv
+
+
 expenses = []
 
 
@@ -143,6 +146,29 @@ def monthly_report():
         print("-----------------------")
         print("Total Expense =", total)
 
+def export_to_csv():
+    print("\n----- Export to CSV -----")
+
+    if len(expenses) == 0:
+        print("No Expenses Found.")
+        return
+
+    with open("expenses.csv", "w", newline="") as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow(["Date", "Category", "Amount", "Note"])
+
+        for expense in expenses:
+            writer.writerow([
+                expense["date"],
+                expense["category"],
+                expense["amount"],
+                expense["note"]
+            ])
+
+    print("Expenses Exported Successfully!")        
+
 def menu():
     print("=" * 40)
     print("      EXPENSE TRACKER")
@@ -153,7 +179,8 @@ def menu():
     print("4. Delete Expense")
     print("5. Total Expense")
     print("6. Monthly Report")
-    print("7. Exit")
+    print("7. Export to CSV")
+    print("8. Exit")
 
 
 while True:
