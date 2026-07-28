@@ -208,6 +208,9 @@ while True:
         monthly_report()
 
     elif choice == "7":
+        export_to_csv()
+
+    elif choice == "8":
         print("Thank You!")
         break
 
