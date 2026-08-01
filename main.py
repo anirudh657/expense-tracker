@@ -148,7 +148,7 @@ def monthly_report():
 
     input_month = input("Enter Month and Year (MM-YYYY): ")
     # .split("-") -> breaks text into a list using "-": "07-2026".split("-") = ["07", "2026"]
-    m, y = input_month.split("-")
+    m, y = input_month.split("-")  # unpack the list into two variables: m = month string (e.g. "07"), y = year string (e.g. "2026")
 
     total = 0
     found = False
