@@ -12,6 +12,7 @@ A simple Command Line Expense Tracker built using **Python**. This project helps
 - 🗑️ Delete Expenses
 - 💵 Calculate Total Expenses
 - 📅 Generate Monthly Reports
+- 📤 Export Expenses to CSV
 
 ---
 
@@ -28,7 +29,7 @@ A simple Command Line Expense Tracker built using **Python**. This project helps
 
 ## 📂 Project Structure
 
-```
+```text
 expense-tracker/
 │── main.py
 │── README.md
@@ -38,7 +39,7 @@ expense-tracker/
 
 ## 📸 Menu
 
-```
+```text
 ========================================
       EXPENSE TRACKER
 ========================================
@@ -48,7 +49,8 @@ expense-tracker/
 4. Delete Expense
 5. Total Expense
 6. Monthly Report
-7. Exit
+7. Export to CSV
+8. Exit
 ```
 
 ---
@@ -56,26 +58,37 @@ expense-tracker/
 ## 📖 How It Works
 
 ### 1. Add Expense
+
 Stores an expense with:
+
 - Date
 - Category
 - Amount
 - Note
 
 ### 2. View Expenses
+
 Displays all saved expenses with their details.
 
 ### 3. Search Expense
+
 Find expenses based on their category.
 
 ### 4. Delete Expense
+
 Delete an expense using its expense number.
 
 ### 5. Total Expense
+
 Calculates the total amount spent across all expenses.
 
 ### 6. Monthly Report
+
 Displays all expenses for a selected month and calculates the total spending for that month.
+
+### 7. Export to CSV
+
+Saves all expenses into an `expenses.csv` file.
 
 ---
 
@@ -118,7 +131,6 @@ python main.py
 
 ## 🎯 Future Improvements
 
-- Export expenses to CSV
 - Save expenses permanently using files
 - Search by Date
 - Edit Existing Expenses
@@ -130,8 +142,6 @@ python main.py
 
 ## 👨‍💻 Author
 
-**Anirudh Arora**
-
-B.Tech Computer Science Student | Python Developer | Learning DSA & AI
+**Anirudh Arora** — B.Tech Computer Science Student | Python Developer | Learning DSA & AI
 
 If you found this project helpful, don't forget to ⭐ the repository!

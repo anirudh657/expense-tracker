@@ -173,38 +173,49 @@ def monthly_report():
         print("-----------------------")
         print("Total Expense =", total)
 
+# this function saves all expenses into a CSV file (like an Excel sheet)
 def export_to_csv():
+    # show a heading so the user knows this option started
     print("\n----- Export to CSV -----")
 
-    # if list is empty, there is nothing to export
+    # check if our expenses list is empty
     if len(expenses_list) == 0:
+        # if empty, tell the user and stop here
         print("No Expenses Found.")
         return
 
-    # open(name, "w") -> opens a file for writing (creates it if it doesn't exist)
+    # open (or create) a file named expenses.csv in write mode
+    # newline="" stops extra blank lines from appearing between rows
     with open("expenses.csv", "w", newline="") as file:
 
-        # csv.writer(file) -> gives an object that can write rows into the csv file
+        # create a writer tool that knows how to write rows into the csv file
         writer = csv.writer(file)
 
-        # .writerow([...]) -> writes one row into the csv file
+        # write the first row as column titles (headings)
         writer.writerow(["Date", "Category", "Amount", "Note"])
 
-        # write each expense as one row in the csv file
+        # go through every expense one by one
         for x in expenses_list:
+            # write this expense's details as one row in the file
             writer.writerow([
-                x["date"],
-                x["category"],
-                x["amount"],
-                x["note"]
+                x["date"],      # the date of the expense
+                x["category"],  # the category (like Food, Travel, etc.)
+                x["amount"],    # how much money was spent
+                x["note"]       # any extra note about the expense
             ])
 
-    print("Expenses Exported Successfully!")        
+    # after the file is closed automatically, tell the user it worked
+    print("Expenses Exported Successfully!")
 
 def menu():
+    # "=" * 40 -> repeats the "=" character 40 times to draw a separator line
     print("=" * 40)
     print("      EXPENSE TRACKER")
     print("=" * 40)
+
+    # just prints the list of options the user can pick from
+    # note: this function only displays the menu, it doesn't read the choice
+    # or run anything itself - that happens in the while loop below
     print("1. Add Expense")
     print("2. View Expenses")
     print("3. Search Expense")
