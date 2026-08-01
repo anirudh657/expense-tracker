@@ -148,7 +148,11 @@ def monthly_report():
 
     input_month = input("Enter Month and Year (MM-YYYY): ")
     # .split("-") -> breaks text into a list using "-": "07-2026".split("-") = ["07", "2026"]
-    m, y = input_month.split("-")  # unpack the list into two variables: m = month string (e.g. "07"), y = year string (e.g. "2026")
+    try:
+        m, y = input_month.split("-")  # unpack the list into two variables: m = month string (e.g. "07"), y = year string (e.g. "2026")
+    except ValueError:
+        print("Invalid format. Please enter as MM-YYYY, e.g. 08-2026.")
+        return
 
     total = 0
     found = False
