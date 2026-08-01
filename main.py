@@ -1,6 +1,11 @@
+# csv is a built-in Python module for reading/writing CSV files
+# we need it here for export_to_csv(), which uses csv.writer() to save expenses.csv
 import csv
 
 
+# empty list to store all expenses (each expense will be a dictionary)
+# it's empty at the start because no expenses have been added yet
+# every function (add/view/delete/etc.) reads from or writes to this same list
 expenses_list = []
 
 
