@@ -1,5 +1,6 @@
 # csv is a built-in Python module for reading/writing CSV files
 # we need it here for export_to_csv(), which uses csv.writer() to save expenses.csv
+# expense tracker
 import csv
 
 
